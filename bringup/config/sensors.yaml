@@ -1,0 +1,17 @@
+# 사용할 센서만 true (수정 후 colcon build 필요. --symlink-install 빌드면 바로 반영)
+SENSORS:
+  lidar: true
+  imu: false
+  camera: false
+
+LIDAR:
+  sensor_hostname: "192.168.100.19"  # Ouster 호스트네임/IP
+  scan_ring: 14  # /ouster/scan LaserScan에 쓸 빔 인덱스. OS-32 기준 16이 수평, 14는 그보다 약간 위
+
+# UM7 IMU. 호스트 udev가 MODE=0666 설정.
+IMU:
+  port: "/dev/ttyUSB0"
+  baud: 921600
+  update_rate: 200
+  mag_updates: false
+  frame_id: "imu_link"
